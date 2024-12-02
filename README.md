@@ -2,7 +2,7 @@
 dynamic load balancer using service discovery to manage backend nodes in a distributed system. It detects available services in real-time, updating the load balancer as nodes join or leave the network
 
 ## Run the proyect
-Install libraries and serf
+-Install libraries and serf
 
 ```
 pip install flask requests serfclient
@@ -11,25 +11,26 @@ unzip serf_0.8.2_linux_amd64.zip
 sudo mv serf /usr/local/bin/
 ```
 
-Run backend node. To add more nodes, just change the node name and port on the code.
-Check the status with 
+-Run backend node. To add more nodes, just change the node name and port on the code.
+You can check the status with 
 ```
   serf members
 ```
 
-Run load balancer.
+-Run load balancer.
 
-Send a request to the load balancer using curl.
+-Send a request to the load balancer using curl.
 ```
 curl -X POST http://127.0.0.1:5000/request -H "Content-Type: application/json" -d '{"message": "Hello World"}'
 ```
 
-You should see:
-  -On load balancer terminal
+-You should see:
+
+On the load balancer terminal
   ```
   Forwarding request to backend: 127.0.0.1:8000
   ```
-  -On backend terminal
+On the backend terminal
   ```
   Processed: Hello World
   ```
